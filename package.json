@@ -1,0 +1,17 @@
+{
+  "name": "telecontrol",
+  "version": "0.0.1",
+  "description": "TeleControl is a ROS2 and Node.js powered web interface with joystick and keyboard support",
+  "keywords": ["ROS", "bento", "robot", "control", "joystick"],
+  "author": "snaens",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "generate-ros-messages": "node_modules/.bin/generate-ros-messages"
+  },
+  "dependencies": {
+    "rclnodejs": "^0.22.2"
+  }
+}
