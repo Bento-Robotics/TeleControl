@@ -1,3 +1,8 @@
+
+# ❗ DISCLAIMER: it's not actually done yet, more coming in following weeks ;P
+
+<br>
+
 # TeleControl - an all-in-one frontend for robot control
 
 [![node](https://img.shields.io/node/v/rclnodejs.svg)](https://nodejs.org/en/download/releases/)
