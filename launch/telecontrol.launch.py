@@ -1,4 +1,3 @@
-
 import os
 
 from launch import LaunchDescription
@@ -9,16 +8,15 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
     share_directory = get_package_share_directory('telecontrol')
 
-	# revise path to your nodejs start file
-    start_js_file = os.path.join(
+    # revise path to your nodejs start file
+    telecontrol_js = os.path.join(
         share_directory,
         'dist',
-        'index.js')
+        'telecontrol.js')
 
     telecontrol_node = Node(
         name='telecontrol',
@@ -26,7 +24,7 @@ def generate_launch_description():
         output='screen',
         parameters=[{'use_sim_time': use_sim_time}],
         arguments=[
-            start_js_file
+            telecontrol_js
         ],
         cwd=share_directory)
 

@@ -20,7 +20,7 @@ body {
   }
   
   p {
-    margin: 0px;
+    margin: 0;
   }
   /* Navigation styles */
   nav {
@@ -95,7 +95,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px;
+    margin: 0;
   }
 
   .button{
@@ -103,10 +103,7 @@ body {
     text-align: center;
     width: 10vh;
     height: 10vh;
-    margin-top: 0px;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-bottom: 10px;
+    margin: 0 10px 10px;
     border-radius: 10px;
     display: flex;
     justify-content: center;

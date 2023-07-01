@@ -1,8 +1,3 @@
-
-# ❗ DISCLAIMER: it's not actually done yet, more coming in following weeks ;P
-
-<br>
-
 # TeleControl - an all-in-one frontend for robot control
 
 [![node](https://img.shields.io/node/v/rclnodejs.svg)](https://nodejs.org/en/download/releases/)
@@ -13,17 +8,17 @@ It is designed to be hosted on a ROS2 robot, and serves a webpage, with control 
 ## Structure
 
 ```
-  Robot            ┆       Client device(s)
-                   ┆
-┏━━━━━━━━┓── Serve webpage ─>╔════════╗
-┃ Server ┃         ┆         ║ Client ║
-┗━━━━━━━━┛<────── API ──────>╚════════╝
-  ↑   ⎸            ┆
- rclnodejs         ┆
-  ⎸   ↓            ┆
- ┏━━━━━━┓          ┆
- ┃ ROS2 ┃          ┆
- ┗━━━━━━┛          ┆
+  Robot         ┆       Client device(s)
+                ┆
+┏━━━━━━━━┓      ┆        ╔════════╗
+┃ Server ┃<── webpage ──>║ Client ║
+┗━━━━━━━━┛      ┆        ╚════════╝
+  ↑   ⎸         ┆
+ rclnodejs      ┆
+  ⎸   ↓         ┆
+ ┏━━━━━━┓       ┆
+ ┃ ROS2 ┃       ┆
+ ┗━━━━━━┛       ┆
 ```
 
 Using this structure means the client doesn't need to have ROS installed, so theoretically any device with a browser can
@@ -55,29 +50,37 @@ be used.
 > :warning: Make sure an adequate NPM version is installed first
 
 1. Clone this repo  
-   `git clone https://github.com/Bento-Robotics/telecontrol telecontrol_ws`  
-   
+   `git clone https://github.com/Bento-Robotics/telecontrol telecontrol_ws`
+
 2. Enter the folder  
-   `cd telecontrol_ws`  
-   
+   `cd telecontrol_ws`
+
 3. Source your ros2 enviroment  
-   `source /opt/ros/$ROS_DISTRO/setup.bash`  
-   
+   `source /opt/ros/$ROS_DISTRO/setup.bash`
+
 4. Install dependencies  
-   `npm install`  
-   
+   `npm install`
+
 5. Build  
-   `colcon build`  
+   `colcon build`
 
 ---
 
 ### Running
 
+**...on node**
+
+`node <telecontrol_location>/src/telecontrol.js`
+
+<br>
+
+**...with ROS**
+
+- make sure you have cd'd into your catkin workspace
 - Source the workspace  
-  `source $PWD/install/setup.bash`  
-  
-    - automatically do this on every login  
-      `echo "source ${PWD}/install/setup.bash" >>~/.bashrc`  
-      
+  `source $PWD/install/setup.bash`
+  > to automatically do this on every login:  
+  > `echo "source ${PWD}/install/setup.bash" >>~/.bashrc`
+
 - Run it!  
-  `ros2 launch telecontrol <launchfile>`  
+  `ros2 launch telecontrol telecontrol.launch.py`
