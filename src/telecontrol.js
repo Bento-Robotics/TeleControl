@@ -1,5 +1,14 @@
 const rclnodejs = require('rclnodejs');
-const {join} = require("path");
+const fs = require('fs');
+const http = require('http');
+
+var express = require('express')
+var app = express()
+
+app.use(express.static('../html'));
+
+
+
 
 // Create a node that publishes a msg to the topic 'foo' every 1 second.
 // View the topic from the ros2 commandline as shown below:
@@ -26,32 +35,18 @@ async function example() {
 }
 
 async function webpage() {
-    // WIP html serving code
-    // const express = require('express')
-    // const serveStatic = require('serve-static');
-    //
-    //
-    // const app = express()
-    //
-    // app.use(serveStatic('../html', { index: ['index.html'] }))
-    // app.listen(8080, () => console.log('Server running on 8080...'))
 
 
-    // Demo serving code
-    const http = require('http')
+        var server = app.listen(8000, function () {
+
+            var host = server.address().address;
+            var port = server.address().port;
+
+            console.log('Express app listening at http://%s:%s', host, port)
+
+        })
 
 
-    const port = process.env.PORT || 7000
-
-    const server = http.createServer((req, res) => {
-        res.statusCode = 200
-        res.setHeader('Content-Type', 'text/html')
-        res.end('<h1>Hello, World!</h1>')
-    })
-
-    server.listen(port, () => {
-        console.log(`Server running at port ${port}`)
-    })
 }
 
 (async function main() {
